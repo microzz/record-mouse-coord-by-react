@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Record Coord</title>
+    <style>
+        html, body, div {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            background: rgba(0, 0, 0, .2);
+        }
+    </style>
+</head>
+<body>
+
+<script src="js/react.min.js"></script>
+<script src="js/JSXTransformer.js"></script>
+
+<script type="text/jsx">
+    let Record = React.createClass({
+        getInitialState() {
+            return {
+                x: 0,
+                y: 0
+            }
+        },
+        handleMove(event)  {
+            this.setState({
+                x: event.clientX,
+                y: event.clientY
+            })
+        },
+       render() {
+            return <div onMouseMove={this.handleMove} style={{
+                color: 'green',
+                fontSize: '3rem',
+                margin: '10% auto',
+                textAlign: 'center'
+            }}>
+                x: {this.state.x} <br/>y:{this.state.y}
+
+                </div>
+
+       } ,
+    });
+
+    React.render(<Record/>, document.body);
+
+</script>
+
+</body>
+</html>
